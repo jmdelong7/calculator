@@ -1,0 +1,41 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(39, 39, 39);
+  color: rgb(231, 231, 231);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  height: 600px;
+}
+
+.calculator {
+  display: flex;
+  border: 3px solid black;
+  flex-direction: column;
+  height: 400px;
+  width: 350px;
+}
+
+.output {
+  border: 1px solid white;
+  height: 75px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.output-text {
+  border: 1px solid blue;
+  overflow: hidden;
+  font-size: 54px;
+  padding: 3px;
+}

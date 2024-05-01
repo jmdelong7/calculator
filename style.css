@@ -21,8 +21,8 @@ body {
   display: flex;
   border: 3px solid black;
   flex-direction: column;
-  height: 400px;
-  width: 350px;
+  height: 350px;
+  width: 300px;
 }
 
 .output {
@@ -38,4 +38,53 @@ body {
   overflow: hidden;
   font-size: 54px;
   padding: 3px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 2px solid green;
+  height: 100%;
+}
+
+button {
+  border: none;
+  background-color: darkslategrey;
+  color: rgb(231, 231, 231);
+  margin: 2px;
+}
+
+.numbers button {
+  padding: 10px 20px;
+  flex: 1;
+}
+
+.numbers {
+  border: 1px solid yellow;
+  flex: 1;
+}
+
+.num-top, .num-mid, .num-bot{
+  display: flex;
+}
+
+.zero, .zero button {
+  flex: 1;
+  border: 1px solid red;
+  width: 100%;
+  padding: 10px;
+}
+
+.operations {
+  width: 25%;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.operations button {
+  flex: 1;
 }

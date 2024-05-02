@@ -1,17 +1,17 @@
+const numbers = Array.from(document.querySelectorAll(".numbers button"));
 const output = document.querySelector(".output-text");
-const numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-numArray.forEach((num) => document.querySelector(num))
+console.log(numbers[3].value)
+console.log(typeof output.textContent)
 
-// function to put 1st number in output
+// click number
+// change output text to number value
 
-function num1(arr) {
-  arr.forEach((num) =>{
-    num.addEventSelector("click", () => {
-      output.append(num);
-    })
+numbers.forEach((num) => {
+  num.addEventListener("click", (n) => {
+    output.textContent = n.target.value;
   })
-}
+})
 
 function add(n1, n2) {
   return n1 + n2;

@@ -1,17 +1,34 @@
 const numbers = Array.from(document.querySelectorAll(".numbers button"));
 const output = document.querySelector(".output-text");
-const outputArray = [];
+
+const num1 = [];
+const numNext = [];
 
 
-numbers.forEach((num) => {
-  num.addEventListener("click", (n) => {
-    outputArray.push(n.target.value);
-    output.textContent = outputArray.join('');
+
+function getFirstNum() {
+  numbers.forEach((num) => {
+    num.addEventListener("click", (n) => {
+      num1.push(n.target.value);
+      output.textContent = num1.join('');
+    })
   })
-})
+}
 
-function add(n1, n2) {
-  return n1 + n2;
+function getNextNum() {
+  numbers.forEach((num) => {
+    num.addEventListener("click", (n) => {
+      numNext.push(n.target.value);
+      output.textContent = numNext.join('');
+    })
+  })
+}
+
+plus = document.querySelector(".plus");
+plus.addEventListener("click", add);
+function add() {
+  output.textContent = "";
+  getNextNum();
 }
 
 function subtract(n1, n2) {

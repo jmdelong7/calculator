@@ -1,15 +1,12 @@
 const numbers = Array.from(document.querySelectorAll(".numbers button"));
 const output = document.querySelector(".output-text");
+const outputArray = [];
 
-console.log(numbers[3].value)
-console.log(typeof output.textContent)
-
-// click number
-// change output text to number value
 
 numbers.forEach((num) => {
   num.addEventListener("click", (n) => {
-    output.textContent = n.target.value;
+    outputArray.push(n.target.value);
+    output.textContent = outputArray.join('');
   })
 })
 

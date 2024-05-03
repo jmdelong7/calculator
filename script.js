@@ -7,8 +7,8 @@ let displayValue = "";
 function clickNumber () {
   numbers.forEach(number => {
     number.addEventListener("click", (e) => {
-      display.textContent += e.target.value;
       displayValue += e.target.value;
+      display.textContent = displayValue;
     })
   })
 }

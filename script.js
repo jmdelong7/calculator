@@ -15,23 +15,37 @@ function clickNumber () {
 
 clickNumber();
 
-const plusSign = document.querySelector(".plus");
-const minusSign = document.querySelector(".minus");
-const divideSign = document.querySelector(".divide");
-const multiplySign = document.querySelector(".multiply");
+const clear = document.querySelector(".clear");
+
+clear.addEventListener("click", () => {
+  num1 = null;
+  num2 = null;
+  operator = null;
+  displayValue = "";
+  display.textContent = "0";
+})
+
 const equals = document.querySelector(".equals");
+
+let result, operationClicked;
 
 equals.addEventListener("click", () => {
   num2 = displayValue;
   let result = operate(operationClicked, num1, num2);
   console.log(result);
   display.textContent = result;
+  displayValue = result;
 })
 
-let operationClicked;
+function operate(operator, n1, n2) {
+  return operator(n1, n2);
+}
 
-// need to get operator out of plusSign to run operate on n1/n2
-// new var operationClicked to hold operator
+function add(n1, n2) {
+  return +n1 + +n2;
+}
+
+const plusSign = document.querySelector(".plus");
 
 plusSign.addEventListener("click", () => {
   num1 = displayValue;
@@ -40,27 +54,44 @@ plusSign.addEventListener("click", () => {
   operationClicked = add;
 })
 
-// yellow operator is not taking operator perameter
-// trying to use it as a fxn
-function operate(operator, n1, n2) {
-  return operator(n1, n2);
-}
-
-function add(n1, n2) {
-  return n1 + n2;
-}
-
 function subtract(n1, n2) {
-  return n1 - n2;
+  return +n1 - +n2;
 }
+
+const minusSign = document.querySelector(".minus");
+
+minusSign.addEventListener("click", () => {
+  num1 = displayValue;
+  display.textContent = "";
+  displayValue = "";
+  operationClicked = subtract;
+})
 
 function multiply(n1, n2) {
-  return n1 * n2;
+  return +n1 * +n2;
 }
 
+const multiplySign = document.querySelector(".multiply");
+
+multiplySign.addEventListener("click", () => {
+  num1 = displayValue;
+  display.textContent = "";
+  displayValue = "";
+  operationClicked = multiply;
+})
+
 function divide(n1, n2) {
-  return n1 / n2;
+  return +n1 / +n2;
 }
+
+const divideSign = document.querySelector(".divide");
+
+divideSign.addEventListener("click", () => {
+  num1 = displayValue;
+  display.textContent = "";
+  displayValue = "";
+  operationClicked = divide;
+})
 
 
 

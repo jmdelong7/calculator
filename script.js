@@ -19,16 +19,31 @@ const plusSign = document.querySelector(".plus");
 const minusSign = document.querySelector(".minus");
 const divideSign = document.querySelector(".divide");
 const multiplySign = document.querySelector(".multiply");
+const equals = document.querySelector(".equals");
+
+equals.addEventListener("click", () => {
+  num2 = displayValue;
+  let result = operate(operationClicked, num1, num2);
+  console.log(result);
+  display.textContent = result;
+})
+
+let operationClicked;
+
+// need to get operator out of plusSign to run operate on n1/n2
+// new var operationClicked to hold operator
 
 plusSign.addEventListener("click", () => {
   num1 = displayValue;
   display.textContent = "";
   displayValue = "";
-  operator = add;
+  operationClicked = add;
 })
 
+// yellow operator is not taking operator perameter
+// trying to use it as a fxn
 function operate(operator, n1, n2) {
-  operator(n1, n2);
+  return operator(n1, n2);
 }
 
 function add(n1, n2) {

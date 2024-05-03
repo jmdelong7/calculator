@@ -1,34 +1,38 @@
-const numbers = Array.from(document.querySelectorAll(".numbers button"));
-const output = document.querySelector(".output-text");
+let num1, operator, num2;
 
-const num1 = [];
-const numNext = [];
+let display = document.querySelector(".output-text");
+let numbers = document.querySelectorAll(".numbers button");
+let displayValue = "";
 
-
-
-function getFirstNum() {
-  numbers.forEach((num) => {
-    num.addEventListener("click", (n) => {
-      num1.push(n.target.value);
-      output.textContent = num1.join('');
+function clickNumber () {
+  numbers.forEach(number => {
+    number.addEventListener("click", (e) => {
+      display.textContent += e.target.value;
+      displayValue += e.target.value;
     })
   })
 }
 
-function getNextNum() {
-  numbers.forEach((num) => {
-    num.addEventListener("click", (n) => {
-      numNext.push(n.target.value);
-      output.textContent = numNext.join('');
-    })
-  })
+clickNumber();
+
+const plusSign = document.querySelector(".plus");
+const minusSign = document.querySelector(".minus");
+const divideSign = document.querySelector(".divide");
+const multiplySign = document.querySelector(".multiply");
+
+plusSign.addEventListener("click", () => {
+  num1 = displayValue;
+  display.textContent = "";
+  displayValue = "";
+  operator = add;
+})
+
+function operate(operator, n1, n2) {
+  operator(n1, n2);
 }
 
-plus = document.querySelector(".plus");
-plus.addEventListener("click", add);
-function add() {
-  output.textContent = "";
-  getNextNum();
+function add(n1, n2) {
+  return n1 + n2;
 }
 
 function subtract(n1, n2) {
@@ -43,6 +47,6 @@ function divide(n1, n2) {
   return n1 / n2;
 }
 
-function operate(operator, num1, num2) {
-  operator(num1, num2);
-}
+
+
+

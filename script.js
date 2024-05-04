@@ -9,14 +9,17 @@ let equalsClicked = false;
 function clickNumber () {
   numbers.forEach(number => {
     number.addEventListener("click", (e) => {
-      if (equalsClicked === true) {
+      if (equalsClicked === true && (operationSign != null && operationSign != "")) {
+        equalsClicked = false;
+        result = null;
+      } else if (equalsClicked === true) {
         equalsClicked = false;
         result = null;
         displayValue = "";
         operationSign = "";
         operator = null;
         num1 = null;
-        num2 = null;
+        num2 = null;        
       }
     
       displayValue += e.target.value;
@@ -51,6 +54,7 @@ equals.addEventListener("click", () => {
   display.textContent = result;
   displayValue = result;
   equalsClicked = true;
+  num1 = displayValue;
 })
 
 function operate(operator, n1, n2) {

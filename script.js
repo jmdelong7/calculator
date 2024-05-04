@@ -46,15 +46,24 @@ const equals = document.querySelector(".equals");
 let result, operationClicked;
 let operationSign = "";
 
+function roundResult(numToRound) {
+  Math.round((numToRound * 100) / 100);
+  if (Number.isInteger(numToRound)) {
+    return numToRound.toString();
+  } else {
+    return numToRound.toFixed(2);
+  }
+}
+
 equals.addEventListener("click", () => {
   operationSign = null;
   num2 = displayValue;
-  let result = operate(operationClicked, num1, num2);
-  console.log(result);
+  let result = roundResult(operate(operationClicked, num1, num2));
   display.textContent = result;
   displayValue = result;
   equalsClicked = true;
   num1 = displayValue;
+
 })
 
 function operate(operator, n1, n2) {

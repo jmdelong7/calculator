@@ -21,7 +21,7 @@ function clickNumber () {
         num1 = null;
         num2 = null;        
       }
-    
+
       displayValue += e.target.value;
       display.textContent = displayValue;
     })
@@ -56,6 +56,9 @@ let result, operationClicked;
 let operationSign = "";
 
 equals.addEventListener("click", () => {
+  if (operationSign === "") {
+    return
+  }
   num2 = displayValue;
   if (operationSign === "/" && num2 == 0) {
     return alert("DON'T YOU DARE DIVIDE BY 0!");
@@ -88,7 +91,6 @@ const plusSign = document.querySelector(".plus");
 
 plusSign.addEventListener("click", () => {
   num1 = displayValue;
-  display.textContent = "";
   operationSign = "+";
   displayValue = "";
   operationClicked = add;
@@ -102,7 +104,6 @@ const minusSign = document.querySelector(".minus");
 
 minusSign.addEventListener("click", () => {
   num1 = displayValue;
-  display.textContent = "";
   operationSign = "-";
   displayValue = "";
   operationClicked = subtract;
@@ -116,7 +117,6 @@ const multiplySign = document.querySelector(".multiply");
 
 multiplySign.addEventListener("click", () => {
   num1 = displayValue;
-  display.textContent = "";
   operationSign = "*";
   displayValue = "";
   operationClicked = multiply;
@@ -130,7 +130,6 @@ const divideSign = document.querySelector(".divide");
 
 divideSign.addEventListener("click", () => {
   num1 = displayValue;
-  display.textContent = "";
   operationSign = "/";
   displayValue = "";
   operationClicked = divide;

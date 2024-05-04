@@ -72,6 +72,14 @@ function operate(operator, n1, n2) {
   return !operator ? 0 : operator(n1, n2);
 }
 
+const decimalSign = document.querySelector(".decimal");
+decimalSign.addEventListener("click", () => {
+if (!display.textContent.includes(".")) {
+    display.textContent += ".";
+    displayValue += ".";
+  }
+})
+
 function add(n1, n2) {
   return +n1 + +n2;
 }
@@ -80,7 +88,7 @@ const plusSign = document.querySelector(".plus");
 
 plusSign.addEventListener("click", () => {
   num1 = displayValue;
-  display.textContent += "+";
+  display.textContent = "";
   operationSign = "+";
   displayValue = "";
   operationClicked = add;
@@ -94,7 +102,7 @@ const minusSign = document.querySelector(".minus");
 
 minusSign.addEventListener("click", () => {
   num1 = displayValue;
-  display.textContent += "-";
+  display.textContent = "";
   operationSign = "-";
   displayValue = "";
   operationClicked = subtract;
@@ -108,7 +116,7 @@ const multiplySign = document.querySelector(".multiply");
 
 multiplySign.addEventListener("click", () => {
   num1 = displayValue;
-  display.textContent += "*";
+  display.textContent = "";
   operationSign = "*";
   displayValue = "";
   operationClicked = multiply;
@@ -122,7 +130,7 @@ const divideSign = document.querySelector(".divide");
 
 divideSign.addEventListener("click", () => {
   num1 = displayValue;
-  display.textContent += "/";
+  display.textContent = "";
   operationSign = "/";
   displayValue = "";
   operationClicked = divide;

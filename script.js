@@ -2,11 +2,19 @@ let num1, operator, num2;
 
 let display = document.querySelector(".output-text");
 let numbers = document.querySelectorAll(".numbers button");
+
 let displayValue = "";
+let equalsClicked = false;
 
 function clickNumber () {
   numbers.forEach(number => {
     number.addEventListener("click", (e) => {
+      if (equalsClicked === true) {
+        equalsClicked = false;
+        result = null;
+        displayValue = "";
+      }
+    
       displayValue += e.target.value;
       display.textContent = displayValue;
     })
@@ -21,6 +29,7 @@ clear.addEventListener("click", () => {
   num1 = null;
   num2 = null;
   operator = null;
+  operationSign = null;
   displayValue = "";
   display.textContent = "0";
 })
@@ -28,13 +37,16 @@ clear.addEventListener("click", () => {
 const equals = document.querySelector(".equals");
 
 let result, operationClicked;
+let operationSign = "";
 
 equals.addEventListener("click", () => {
+  operationSign = null;
   num2 = displayValue;
   let result = operate(operationClicked, num1, num2);
   console.log(result);
   display.textContent = result;
   displayValue = result;
+  equalsClicked = true;
 })
 
 function operate(operator, n1, n2) {
@@ -49,7 +61,8 @@ const plusSign = document.querySelector(".plus");
 
 plusSign.addEventListener("click", () => {
   num1 = displayValue;
-  display.textContent = "";
+  display.textContent += "+";
+  operationSign = "+";
   displayValue = "";
   operationClicked = add;
 })
@@ -62,7 +75,8 @@ const minusSign = document.querySelector(".minus");
 
 minusSign.addEventListener("click", () => {
   num1 = displayValue;
-  display.textContent = "";
+  display.textContent += "-";
+  operationSign = "-";
   displayValue = "";
   operationClicked = subtract;
 })
@@ -75,7 +89,8 @@ const multiplySign = document.querySelector(".multiply");
 
 multiplySign.addEventListener("click", () => {
   num1 = displayValue;
-  display.textContent = "";
+  display.textContent += "*";
+  operationSign = "*";
   displayValue = "";
   operationClicked = multiply;
 })
@@ -88,7 +103,8 @@ const divideSign = document.querySelector(".divide");
 
 divideSign.addEventListener("click", () => {
   num1 = displayValue;
-  display.textContent = "";
+  display.textContent += "/";
+  operationSign = "/";
   displayValue = "";
   operationClicked = divide;
 })

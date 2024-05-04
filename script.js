@@ -41,11 +41,6 @@ clear.addEventListener("click", () => {
   display.textContent = "0";
 })
 
-const equals = document.querySelector(".equals");
-
-let result, operationClicked;
-let operationSign = "";
-
 function roundResult(numToRound) {
   Math.round((numToRound * 100) / 100);
   if (Number.isInteger(numToRound)) {
@@ -55,15 +50,22 @@ function roundResult(numToRound) {
   }
 }
 
+const equals = document.querySelector(".equals");
+
+let result, operationClicked;
+let operationSign = "";
+
 equals.addEventListener("click", () => {
-  operationSign = null;
   num2 = displayValue;
+  if (operationSign === "/" && num2 == 0) {
+    return alert("DON'T YOU DARE DIVIDE BY 0!");
+  }
+  operationSign = null;
   let result = roundResult(operate(operationClicked, num1, num2));
   display.textContent = result;
   displayValue = result;
   equalsClicked = true;
   num1 = displayValue;
-
 })
 
 function operate(operator, n1, n2) {

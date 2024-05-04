@@ -13,6 +13,10 @@ function clickNumber () {
         equalsClicked = false;
         result = null;
         displayValue = "";
+        operationSign = "";
+        operator = null;
+        num1 = null;
+        num2 = null;
       }
     
       displayValue += e.target.value;

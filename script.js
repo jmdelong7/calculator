@@ -58,7 +58,7 @@ equals.addEventListener("click", () => {
 })
 
 function operate(operator, n1, n2) {
-  return operator(n1, n2);
+  return !operator ? 0 : operator(n1, n2);
 }
 
 function add(n1, n2) {
